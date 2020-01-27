@@ -61,6 +61,11 @@ package actionScripts.factory
 		{
 			return fileBridge.name;
 		}
+
+		public function get path():String
+		{
+			return fileBridge.nativePath;
+		}
 		
 		//--------------------------------------------------------------------------
 		//

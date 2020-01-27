@@ -30,6 +30,7 @@ package actionScripts.plugins.as3project.mxmlc
 	import flash.utils.Dictionary;
 	import flash.utils.IDataInput;
 	import flash.utils.IDataOutput;
+	import flash.utils.clearTimeout;
 	import flash.utils.setTimeout;
 	
 	import mx.collections.ArrayCollection;
@@ -1019,7 +1020,7 @@ package actionScripts.plugins.as3project.mxmlc
 					+dbg
 					+output;
 				
-				print("Command: %s"+ mxmlcStr);
+				trace("mxmlc command: %s"+ mxmlcStr);
 				return mxmlcStr;
 			} 
 			else 
@@ -1055,6 +1056,7 @@ package actionScripts.plugins.as3project.mxmlc
 		{
 			if (fcsh)
 			{
+				stopShell();
 				exiting = true;
 				reset();
 			}
@@ -1089,27 +1091,17 @@ package actionScripts.plugins.as3project.mxmlc
 
 		private function stopShell():void
 		{
-            if (!fcsh)
-			{
-				return;
-			}
+            if (!fcsh) return;
+            if (fcsh.running) fcsh.exit();
+            fcsh.removeEventListener(ProgressEvent.STANDARD_OUTPUT_DATA, shellData);
+            fcsh.removeEventListener(ProgressEvent.STANDARD_ERROR_DATA, shellError);
+            fcsh.removeEventListener(IOErrorEvent.STANDARD_ERROR_IO_ERROR,shellError);
+            fcsh.removeEventListener(IOErrorEvent.STANDARD_OUTPUT_IO_ERROR,shellError);
+            fcsh.removeEventListener(NativeProcessExitEvent.EXIT, shellExit);
+            fcsh = null;
 
-            if (fcsh.running)
-			{
-				fcsh.exit();
-			}
-		}
-
-		private function cleanUpShell():void
-		{
-			if (!fcsh) return;
-
-			fcsh.removeEventListener(ProgressEvent.STANDARD_OUTPUT_DATA, shellData);
-			fcsh.removeEventListener(ProgressEvent.STANDARD_ERROR_DATA, shellError);
-			fcsh.removeEventListener(IOErrorEvent.STANDARD_ERROR_IO_ERROR,shellError);
-			fcsh.removeEventListener(IOErrorEvent.STANDARD_OUTPUT_IO_ERROR,shellError);
-			fcsh.removeEventListener(NativeProcessExitEvent.EXIT, shellExit);
-			fcsh = null;
+            dispatcher.dispatchEvent(new StatusBarEvent(StatusBarEvent.PROJECT_BUILD_ENDED));
+            dispatcher.removeEventListener(StatusBarEvent.PROJECT_BUILD_TERMINATE, onTerminateBuildRequest);
 		}
 
 		private function onTerminateBuildRequest(event:StatusBarEvent):void
@@ -1174,7 +1166,6 @@ package actionScripts.plugins.as3project.mxmlc
 							var htmlWrapperFile:File = swfFile.parent.resolvePath(swfFile.name.split(".")[0] +".html");
 							getHTMLTemplatesCopied(currentSuccessfullProject, htmlWrapperFile);
 						}
-
 						if (runAfterBuild || debugAfterBuild)
 						{
 							dispatcher.dispatchEvent(new SWFLaunchEvent(SWFLaunchEvent.EVENT_UNLAUNCH_SWF, null));
@@ -1188,7 +1179,6 @@ package actionScripts.plugins.as3project.mxmlc
 								else
 								{
 									launchDebuggingAfterBuild(debugAfterBuild);
-									success("Launching application: %s", currentProject.projectName);
 								}
 							}
 							else
@@ -1547,7 +1537,6 @@ package actionScripts.plugins.as3project.mxmlc
 				if(runAfterBuild || debugAfterBuild)
 				{
 					launchDebuggingAfterBuild(debugAfterBuild);
-					success("Launching application: %s", currentProject.projectName);
 				}
 				else
 				{
@@ -1600,7 +1589,6 @@ package actionScripts.plugins.as3project.mxmlc
 				else
 				{
 					launchDebuggingAfterBuild(debugAfterBuild);
-					success("Launching application: %s", currentProject.projectName);
 				}
             }
             else
@@ -1644,6 +1632,7 @@ package actionScripts.plugins.as3project.mxmlc
 			if(fcsh)
 			{
 				var currentAs3Project:AS3ProjectVO = currentProject as AS3ProjectVO;
+                var timeoutValue:uint;
 				var output:IDataInput = fcsh.standardError;
 				var data:String = output.readUTFBytes(output.bytesAvailable);
 
@@ -1656,7 +1645,7 @@ package actionScripts.plugins.as3project.mxmlc
 					if (currentAs3Project && !currentAs3Project.isRoyale && !currentAs3Project.isFlexJS)
                     {
                         //Let's wait with the reset because compiler may still have something to report
-						reset();
+						resetAfterShellError();
                     }
 					return;
 				}
@@ -1668,7 +1657,7 @@ package actionScripts.plugins.as3project.mxmlc
 
                     if (currentAs3Project && !currentAs3Project.isRoyale && !currentAs3Project.isFlexJS)
                     {
-						reset();
+						resetAfterShellError();
                     }
 					return;
 				}
@@ -1691,24 +1680,30 @@ package actionScripts.plugins.as3project.mxmlc
 				print(data);
                 if (currentAs3Project && !currentAs3Project.isRoyale && !currentAs3Project.isFlexJS)
                 {
-					reset();
+					resetAfterShellError();
                 }
+			}
+			
+			/*
+			 * @local
+			 */
+			function resetAfterShellError():void
+			{
+				timeoutValue = setTimeout(function():void {
+					reset();
+					clearTimeout(timeoutValue);
+				}, 100);
 			}
 		}
 		
 		private function shellExit(e:NativeProcessExitEvent):void 
 		{
 			reset();
-			cleanUpShell();
-
 			if (exiting)
 			{
 				exiting = false;
 				startShell();
 			}
-
-			dispatcher.dispatchEvent(new StatusBarEvent(StatusBarEvent.PROJECT_BUILD_ENDED));
-			dispatcher.removeEventListener(StatusBarEvent.PROJECT_BUILD_TERMINATE, onTerminateBuildRequest);
 		}
 	}
 }

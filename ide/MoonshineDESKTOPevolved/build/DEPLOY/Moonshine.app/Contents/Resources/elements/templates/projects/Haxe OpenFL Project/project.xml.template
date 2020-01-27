@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<!-- project.xml reference: https://lime.software/docs/project-files/xml-format/ -->
+	
+	<meta title="$ProjectName" package="com.example.$ProjectName" version="1.0.0" company="Company Name" />
+	
+	<app main="$ProjectName" path="bin" file="$ProjectName" />
+	
+	<!-- classpath -->
+	<source path="src" />
+
+	<!-- haxe libs -->
+	<haxelib name="openfl" />
+	
+	<!-- assets -->
+	<icon path="assets/openfl.svg" />
+	<!--<assets path="assets/img" rename="img" />-->
+	
+	<!-- optimize output
+	<haxeflag name="-dce full" /> -->
+	
+</project>

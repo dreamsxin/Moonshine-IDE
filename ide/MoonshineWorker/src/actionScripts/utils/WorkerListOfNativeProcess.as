@@ -86,14 +86,8 @@ package actionScripts.utils
 			
 			var tmpArr:Array = queue[0].com.split("&&");
 			
-			if (!MoonshineWorker.IS_MACOS)
-			{
-				tmpArr.unshift("/c");
-			}
-			else
-			{
-				tmpArr.unshift("-c");
-			}
+			if (!MoonshineWorker.IS_MACOS) tmpArr.unshift("/c");
+			else tmpArr.unshift("-c");
 			customInfo.arguments = Vector.<String>(tmpArr);
 			customInfo.workingDirectory = currentWorkingDirectory;
 			
@@ -134,18 +128,14 @@ package actionScripts.utils
 				customProcess.exit();
 			}
 
-			presentRunningQueue = null;
-			isErrorClose = false;
-		}
-
-		private function cleanUpShell():void
-		{
 			customProcess.removeEventListener(ProgressEvent.STANDARD_OUTPUT_DATA, shellData);
 			customProcess.removeEventListener(ProgressEvent.STANDARD_ERROR_DATA, shellData);
 			customProcess.removeEventListener(IOErrorEvent.STANDARD_ERROR_IO_ERROR, shellError);
 			customProcess.removeEventListener(IOErrorEvent.STANDARD_OUTPUT_IO_ERROR, shellError);
 			customProcess.removeEventListener(NativeProcessExitEvent.EXIT, shellExit);
 			customProcess = null;
+			presentRunningQueue = null;
+			isErrorClose = false;
 		}
 
 		private function shellError(e:ProgressEvent):void 
@@ -189,7 +179,7 @@ package actionScripts.utils
 				});
 				isErrorClose = true;
 				//Native process need time to properly exited
-				stopShell();
+				setTimeout(stopShell, 200);
 			}
 		}
 		
@@ -197,15 +187,16 @@ package actionScripts.utils
 		{
 			if (customProcess) 
 			{
-				worker.workerToMain.send({
-					event:WorkerEvent.RUN_NATIVEPROCESS_OUTPUT,
-					value:new WorkerNativeProcessResult(WorkerNativeProcessResult.OUTPUT_TYPE_CLOSE, null, presentRunningQueue),
-					subscriberUdid:subscriberUdid
-				});
-				flush();
+				if (!isErrorClose) 
+				{
+					worker.workerToMain.send({
+						event:WorkerEvent.RUN_NATIVEPROCESS_OUTPUT, 
+						value:new WorkerNativeProcessResult(WorkerNativeProcessResult.OUTPUT_TYPE_CLOSE, null, presentRunningQueue), 
+						subscriberUdid:subscriberUdid
+					});
+					flush();
+				}
 			}
-
-			cleanUpShell();
 		}
 		
 		private function shellData(e:ProgressEvent):void 
@@ -239,12 +230,14 @@ package actionScripts.utils
 						subscriberUdid:subscriberUdid
 					});
 				}
+				isErrorClose = true;
 
 				//Native process need time to properly exited
 				setTimeout(stopShell, 200);
 				return;
 			}
-
+			
+			isErrorClose = false;
 			if (!isFatal)
 			{
 				worker.workerToMain.send({
