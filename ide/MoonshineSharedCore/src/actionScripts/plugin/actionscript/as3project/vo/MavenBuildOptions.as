@@ -23,7 +23,7 @@ package actionScripts.plugin.actionscript.as3project.vo
 
     public class MavenBuildOptions extends JavaProjectBuildOptions
     {
-        public function MavenBuildOptions(defaultMavenBuildPath:String)
+       public function MavenBuildOptions(defaultMavenBuildPath:String)
         {
             super(defaultMavenBuildPath);
         }

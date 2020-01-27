@@ -82,7 +82,6 @@ package actionScripts.plugin.settings
     import actionScripts.plugin.PluginEvent;
     import actionScripts.plugin.PluginManager;
     import actionScripts.plugin.fullscreen.FullscreenPlugin;
-    import actionScripts.plugin.settings.event.RequestSettingByNameEvent;
     import actionScripts.plugin.settings.event.RequestSettingEvent;
     import actionScripts.plugin.settings.event.SetSettingsEvent;
     import actionScripts.plugin.settings.vo.AbstractSetting;
@@ -94,7 +93,6 @@ package actionScripts.plugin.settings
     import actionScripts.plugin.syntax.CSSSyntaxPlugin;
     import actionScripts.plugin.syntax.GroovySyntaxPlugin;
     import actionScripts.plugin.syntax.HTMLSyntaxPlugin;
-    import actionScripts.plugin.syntax.HaxeSyntaxPlugin;
     import actionScripts.plugin.syntax.JSSyntaxPlugin;
     import actionScripts.plugin.syntax.JavaSyntaxPlugin;
     import actionScripts.plugin.syntax.MXMLSyntaxPlugin;
@@ -105,6 +103,7 @@ package actionScripts.plugin.settings
     import actionScripts.utils.SharedObjectConst;
     import actionScripts.utils.moonshine_internal;
     import actionScripts.valueObjects.ConstantsCoreVO;
+    import actionScripts.plugin.syntax.HaxeSyntaxPlugin;
 
 	use namespace moonshine_internal;
 
@@ -145,7 +144,6 @@ package actionScripts.plugin.settings
 			dispatcher.addEventListener(CloseTabEvent.EVENT_TAB_CLOSED, handleTabClose);
 			dispatcher.addEventListener(SetSettingsEvent.SET_SETTING, handleSetSettings);
 			dispatcher.addEventListener(RequestSettingEvent.REQUEST_SETTING, handleRequestSetting);
-			dispatcher.addEventListener(RequestSettingByNameEvent.REQUEST_SETTING, handleRequestSettingByName);
 			dispatcher.addEventListener(SetSettingsEvent.SAVE_SPECIFIC_PLUGIN_SETTING, handleSpecificPluginSave);
 			dispatcher.addEventListener(GeneralEvent.RESET_ALL_SETTINGS, onResetApplicationSettings, false, 0, true);
 			
@@ -190,7 +188,6 @@ package actionScripts.plugin.settings
             delete cookie.data["isSDKhelperPromptDNS"];
             delete cookie.data["devicesAndroid"];
             delete cookie.data["devicesIOS"];
-			delete cookie.data["doNotShowRoyaleApiPrompt"];
 
             model.javaPathForTypeAhead = null;
             model.isCodeCompletionJavaPresent = false;
@@ -215,14 +212,7 @@ package actionScripts.plugin.settings
 			var plug:IPlugin = pluginManager.getPluginByClassName(className);
 			if (plug && e.name in plug)
 				e.value = plug[e.name];
-		}
-		
-		private function handleRequestSettingByName(event:RequestSettingByNameEvent):void
-		{
-			var className:String = event.name.split("::").pop();
-			use namespace moonshine_internal;
-			var plug:IPlugin = pluginManager.getPluginByClassName(className);
-			if (plug) event.value = plug;
+
 		}
 
 		private function handleSetSettings(e:SetSettingsEvent):void
