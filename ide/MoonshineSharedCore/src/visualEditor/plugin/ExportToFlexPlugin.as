@@ -53,7 +53,7 @@ package visualEditor.plugin
         private function initExportVisualEditorProjectToFlexHandler(event:Event):void
         {
             var currentActiveProject:AS3ProjectVO = model.activeProject as AS3ProjectVO;
-            if (currentActiveProject == null || currentActiveProject.isPrimeFacesVisualEditorProject)
+            if (currentActiveProject == null || currentActiveProject.isPrimeFacesVisualEditorProject || currentActiveProject.isDominoVisualEditorProject)
             {
                 error("This is not Visual Editor Flex project");
                 return;
