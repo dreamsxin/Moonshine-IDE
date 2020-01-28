@@ -8,7 +8,7 @@ package actionScripts.plugin.actionscript.as3project.vo
     import actionScripts.plugin.build.vo.BuildActionVO;
     import actionScripts.utils.SerializeUtil;
 
-    public class MavenDominoBuildOptions extends MavenBuildOptions
+    public class MavenDominoBuildOptions 
     {
         protected var _dominoNotesProgram:String;
         protected var _dominoNotesPlatform:String;
@@ -32,9 +32,9 @@ package actionScripts.plugin.actionscript.as3project.vo
             return _dominoNotesPlatform ;
         }
         
-        public function MavenDominoBuildOptions(defaultMavenBuildPath:String)
+        public function MavenDominoBuildOptions()
         {
-            super(defaultMavenBuildPath);
+           // super(defaultMavenBuildPath);
         }
     }
 }
