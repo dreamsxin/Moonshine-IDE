@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
   <output>
-    <movie width="100"/>
-    <movie disabled="False"/>
-    <movie path="bin-debug/MoonshineDESKTOP.swf"/>
-    <movie platform="AIR"/>
-    <movie fps="24"/>
-    <movie version="27"/>
-    <movie height="100"/>
     <movie background="#000000"/>
+    <movie version="27"/>
+    <movie width="100"/>
+    <movie path="bin-debug/MoonshineDESKTOP.swf"/>
+    <movie fps="24"/>
+    <movie height="100"/>
+    <movie platform="AIR"/>
     <movie input=""/>
+    <movie disabled="False"/>
   </output>
   &lt;!-- Other classes to be compiled into your SWF --&gt;
   <jsOutput>
@@ -27,32 +27,34 @@
   </moonshineResourcePaths>
   <moonshineNativeExtensionPaths></moonshineNativeExtensionPaths>
   <build>
-    <option showBindingWarnings="True"/>
-    <option useResourceBundleMetadata="True"/>
-    <option accessible="True"/>
-    <option verboseStackTraces="False"/>
-    <option showDeprecationWarnings="True"/>
-    <option warnings="True"/>
-    <option antBuildPath=""/>
-    <option linkReport=""/>
-    <option showUnusedTypeSelectorWarnings="True"/>
-    <option es="False"/>
-    <option staticLinkRSL="False"/>
+    <option additional="-locale en_US ja_JP -allow-source-path-overlap=true -swf-version 39 -define+=CONFIG::OSX,false  +configname=air "/>
     <option strict="True"/>
     <option loadConfig=""/>
     <option compilerConstants=""/>
     <option useNetwork="True"/>
+    <option staticLinkRSL="False"/>
     <option optimize="True"/>
-    <option benchmark="False"/>
     <option locale=""/>
+    <option useResourceBundleMetadata="True"/>
     <option customSDK=""/>
     <option showActionScriptWarnings="True"/>
+    <option accessible="True"/>
+    <option warnings="True"/>
+    <option showBindingWarnings="True"/>
     <option allowSourcePathOverlap="False"/>
-    <option additional="-locale en_US ja_JP -allow-source-path-overlap=true -swf-version 43 -define+=CONFIG::OSX,false  +configname=air "/>
+    <option verboseStackTraces="False"/>
+    <option showDeprecationWarnings="True"/>
+    <option benchmark="False"/>
+    <option linkReport=""/>
+    <option antBuildPath=""/>
+    <option showUnusedTypeSelectorWarnings="True"/>
+    <option es="False"/>
   </build>
   <mavenBuild>
-    <option mavenBuildPath="/Users/santanu/Documents/Adobe Flash Builder 4.7/ProminicGITBranch/ide/MoonshineDESKTOPevolved"/>
+    <option dominoNotesProgram=""/>
     <option settingsFilePath=""/>
+    <option mavenBuildPath="/Users/santanu/Documents/Adobe Flash Builder 4.7/ProminicGITBranch/ide/MoonshineDESKTOPevolved"/>
+    <option dominoNotesPlatform=""/>
     <option commandLine=""/>
     <actions>
       <action actionName="Build" action="install"/>
@@ -81,23 +83,23 @@
   <postBuildCommand alwaysRun="False">null</postBuildCommand>
   <trustSVNCertificate>False</trustSVNCertificate>
   <options>
-    <option testMovie="AIR"/>
-    <option testMovieCommand=""/>
-    <option isRoyale="False"/>
+    <option isDominoVisualEditor="False"/>
     <option defaultBuildTargets=""/>
-    <option showHiddenPaths="False"/>
-    <option visualEditorExportPath=""/>
+    <option isRoyale="False"/>
     <option isExportedToExistingSource="False"/>
     <option isPrimeFacesVisualEditor="False"/>
-    <option isDominoVisualEditor="False"/>
+    <option testMovie="AIR"/>
+    <option visualEditorExportPath=""/>
+    <option showHiddenPaths="False"/>
+    <option testMovieCommand=""/>
   </options>
   <moonshineRunCustomization>
-    <option customUrlToLaunch=""/>
-    <option urlToLaunch=""/>
     <option targetPlatform="1"/>
+    <option customUrlToLaunch=""/>
     <option deviceSimulator="null"/>
     <option projectType="1"/>
     <option launchMethod="Simulator"/>
+    <option urlToLaunch=""/>
     <deviceSimulator>null</deviceSimulator>
     <certAndroid>null</certAndroid>
     <certIos>null</certIos>

@@ -1,9 +1,0 @@
-package $packageName;
-
-$imports
-$modifierA $modifierB class $fileName $extends $implements
-{
-	public $fileName()
-	{
-	}
-}
