@@ -1,36 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
   <output>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
     <movie disabled="False"/>
     <movie platform="AIR"/>
     <movie version="32"/>
-=======
-    <movie background="#000000"/>
-    <movie version="27"/>
->>>>>>> 92ff5125168850808ad3ca34c255766347da5d9a
     <movie width="100"/>
-    <movie path="bin-debug/MoonshineDESKTOP.swf"/>
     <movie fps="24"/>
     <movie height="100"/>
-<<<<<<< HEAD
     <movie background="#000000"/>
     <movie path="bin-debug/MoonshineDESKTOP.swf"/>
-=======
-    <movie background="#000000"/>
-    <movie version="27"/>
-    <movie width="100"/>
-    <movie path="bin-debug/MoonshineDESKTOP.swf"/>
-    <movie fps="24"/>
-    <movie height="100"/>
-    <movie platform="AIR"/>
->>>>>>> Stashed changes
-=======
-    <movie platform="AIR"/>
->>>>>>> 92ff5125168850808ad3ca34c255766347da5d9a
     <movie input=""/>
-    <movie disabled="False"/>
   </output>
   &lt;!-- Other classes to be compiled into your SWF --&gt;
   <jsOutput>
@@ -48,88 +27,32 @@
   </moonshineResourcePaths>
   <moonshineNativeExtensionPaths></moonshineNativeExtensionPaths>
   <build>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
     <option es="False"/>
     <option verboseStackTraces="False"/>
     <option customSDK=""/>
-=======
-    <option additional="-locale en_US ja_JP -allow-source-path-overlap=true -swf-version 39 -define+=CONFIG::OSX,false  +configname=air "/>
-    <option strict="True"/>
->>>>>>> 92ff5125168850808ad3ca34c255766347da5d9a
     <option loadConfig=""/>
-    <option compilerConstants=""/>
-    <option useNetwork="True"/>
-    <option staticLinkRSL="False"/>
+    <option linkReport=""/>
     <option optimize="True"/>
-    <option locale=""/>
-    <option useResourceBundleMetadata="True"/>
-    <option customSDK=""/>
+    <option staticLinkRSL="False"/>
     <option showActionScriptWarnings="True"/>
-<<<<<<< HEAD
-=======
-    <option additional="-locale en_US ja_JP -allow-source-path-overlap=true -swf-version 39 -define+=CONFIG::OSX,false  +configname=air "/>
-    <option strict="True"/>
-    <option loadConfig=""/>
->>>>>>> Stashed changes
     <option compilerConstants=""/>
     <option allowSourcePathOverlap="False"/>
-=======
-    <option accessible="True"/>
-    <option warnings="True"/>
->>>>>>> 92ff5125168850808ad3ca34c255766347da5d9a
     <option showBindingWarnings="True"/>
-    <option allowSourcePathOverlap="False"/>
-    <option verboseStackTraces="False"/>
+    <option antBuildPath=""/>
     <option showDeprecationWarnings="True"/>
-<<<<<<< HEAD
     <option additional="-locale en_US ja_JP -allow-source-path-overlap=true -swf-version 39 -define+=CONFIG::OSX,true  +configname=air -external-library-path+=extensions/SSB.ane"/>
     <option locale=""/>
     <option strict="True"/>
     <option accessible="True"/>
     <option useNetwork="True"/>
-<<<<<<< Updated upstream
     <option showUnusedTypeSelectorWarnings="True"/>
     <option useResourceBundleMetadata="True"/>
-=======
->>>>>>> 92ff5125168850808ad3ca34c255766347da5d9a
     <option benchmark="False"/>
-    <option linkReport=""/>
-    <option antBuildPath=""/>
-    <option showUnusedTypeSelectorWarnings="True"/>
-    <option es="False"/>
-  </build>
-  <mavenBuild>
-<<<<<<< HEAD
-    <option mavenBuildPath=""/>
-=======
-    <option staticLinkRSL="False"/>
-    <option optimize="True"/>
-    <option locale=""/>
-    <option useResourceBundleMetadata="True"/>
-    <option customSDK=""/>
-    <option showActionScriptWarnings="True"/>
-    <option accessible="True"/>
     <option warnings="True"/>
-    <option showBindingWarnings="True"/>
-    <option allowSourcePathOverlap="False"/>
-    <option verboseStackTraces="False"/>
-    <option showDeprecationWarnings="True"/>
-    <option benchmark="False"/>
-    <option linkReport=""/>
-    <option antBuildPath=""/>
-    <option showUnusedTypeSelectorWarnings="True"/>
-    <option es="False"/>
   </build>
   <mavenBuild>
-    <option dominoNotesProgram=""/>
->>>>>>> Stashed changes
-=======
-    <option dominoNotesProgram=""/>
->>>>>>> 92ff5125168850808ad3ca34c255766347da5d9a
+    <option mavenBuildPath=""/>
     <option settingsFilePath=""/>
-    <option mavenBuildPath="/Users/santanu/Documents/Adobe Flash Builder 4.7/ProminicGITBranch/ide/MoonshineDESKTOPevolved"/>
-    <option dominoNotesPlatform=""/>
     <option commandLine=""/>
     <actions>
       <action actionName="Build" action="install"/>
@@ -144,7 +67,6 @@
     <element path="libs/VisualEditor-0.2.0.swc"/>
     <element path="../MoonshineSharedCore/libs/AsWing.swc"/>
     <element path="../MoonshineSharedCore/libs/Global.swc"/>
-    <element path="libs/AwayBuilderLib.swc"/>
   </libraryPaths>
   <externalLibraryPaths></externalLibraryPaths>
   <rslPaths></rslPaths>
@@ -158,50 +80,22 @@
   <postBuildCommand alwaysRun="False">null</postBuildCommand>
   <trustSVNCertificate>False</trustSVNCertificate>
   <options>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
     <option showHiddenPaths="False"/>
-=======
-    <option isDominoVisualEditor="False"/>
-    <option defaultBuildTargets=""/>
-    <option isRoyale="False"/>
->>>>>>> 92ff5125168850808ad3ca34c255766347da5d9a
     <option isExportedToExistingSource="False"/>
     <option isPrimeFacesVisualEditor="False"/>
-    <option testMovie="AIR"/>
-    <option visualEditorExportPath=""/>
-    <option showHiddenPaths="False"/>
-    <option testMovieCommand=""/>
-  </options>
-  <moonshineRunCustomization>
-    <option targetPlatform="1"/>
-    <option customUrlToLaunch=""/>
-    <option deviceSimulator="null"/>
-<<<<<<< HEAD
-=======
-    <option isDominoVisualEditor="False"/>
-    <option defaultBuildTargets=""/>
     <option isRoyale="False"/>
-    <option isExportedToExistingSource="False"/>
-    <option isPrimeFacesVisualEditor="False"/>
-    <option testMovie="AIR"/>
     <option visualEditorExportPath=""/>
-    <option showHiddenPaths="False"/>
     <option testMovieCommand=""/>
+    <option defaultBuildTargets=""/>
+    <option testMovie="AIR"/>
   </options>
   <moonshineRunCustomization>
-    <option targetPlatform="1"/>
-    <option customUrlToLaunch=""/>
-    <option deviceSimulator="null"/>
     <option projectType="1"/>
     <option launchMethod="Simulator"/>
     <option urlToLaunch=""/>
->>>>>>> Stashed changes
-=======
-    <option projectType="1"/>
-    <option launchMethod="Simulator"/>
-    <option urlToLaunch=""/>
->>>>>>> 92ff5125168850808ad3ca34c255766347da5d9a
+    <option targetPlatform="1"/>
+    <option customUrlToLaunch=""/>
+    <option deviceSimulator="null"/>
     <deviceSimulator>null</deviceSimulator>
     <certAndroid>null</certAndroid>
     <certIos>null</certIos>
