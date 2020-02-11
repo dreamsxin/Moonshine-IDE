@@ -298,7 +298,7 @@ package actionScripts.controllers
 				var veSourcePathFile:String = fw.file.fileBridge.nativePath
 					.replace(as3ProjectVO.sourceFolder.fileBridge.nativePath,
 						as3ProjectVO.visualEditorSourceFolder.fileBridge.nativePath)
-					.replace(/.mxml$|.xhtml$/, ".xml");
+					.replace(/.mxml$|.xhtml$|.form$/, ".xml");
 				return new FileLocation(veSourcePathFile);
 			}
 			

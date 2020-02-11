@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
   <output>
+<<<<<<< Updated upstream
     <movie disabled="False"/>
     <movie platform="AIR"/>
     <movie version="32"/>
@@ -9,7 +10,17 @@
     <movie height="100"/>
     <movie background="#000000"/>
     <movie path="bin-debug/MoonshineDESKTOP.swf"/>
+=======
+    <movie background="#000000"/>
+    <movie version="27"/>
+    <movie width="100"/>
+    <movie path="bin-debug/MoonshineDESKTOP.swf"/>
+    <movie fps="24"/>
+    <movie height="100"/>
+    <movie platform="AIR"/>
+>>>>>>> Stashed changes
     <movie input=""/>
+    <movie disabled="False"/>
   </output>
   &lt;!-- Other classes to be compiled into your SWF --&gt;
   <jsOutput>
@@ -27,6 +38,7 @@
   </moonshineResourcePaths>
   <moonshineNativeExtensionPaths></moonshineNativeExtensionPaths>
   <build>
+<<<<<<< Updated upstream
     <option es="False"/>
     <option verboseStackTraces="False"/>
     <option customSDK=""/>
@@ -35,6 +47,11 @@
     <option optimize="True"/>
     <option staticLinkRSL="False"/>
     <option showActionScriptWarnings="True"/>
+=======
+    <option additional="-locale en_US ja_JP -allow-source-path-overlap=true -swf-version 39 -define+=CONFIG::OSX,false  +configname=air "/>
+    <option strict="True"/>
+    <option loadConfig=""/>
+>>>>>>> Stashed changes
     <option compilerConstants=""/>
     <option allowSourcePathOverlap="False"/>
     <option showBindingWarnings="True"/>
@@ -45,6 +62,7 @@
     <option strict="True"/>
     <option accessible="True"/>
     <option useNetwork="True"/>
+<<<<<<< Updated upstream
     <option showUnusedTypeSelectorWarnings="True"/>
     <option useResourceBundleMetadata="True"/>
     <option benchmark="False"/>
@@ -52,7 +70,31 @@
   </build>
   <mavenBuild>
     <option mavenBuildPath=""/>
+=======
+    <option staticLinkRSL="False"/>
+    <option optimize="True"/>
+    <option locale=""/>
+    <option useResourceBundleMetadata="True"/>
+    <option customSDK=""/>
+    <option showActionScriptWarnings="True"/>
+    <option accessible="True"/>
+    <option warnings="True"/>
+    <option showBindingWarnings="True"/>
+    <option allowSourcePathOverlap="False"/>
+    <option verboseStackTraces="False"/>
+    <option showDeprecationWarnings="True"/>
+    <option benchmark="False"/>
+    <option linkReport=""/>
+    <option antBuildPath=""/>
+    <option showUnusedTypeSelectorWarnings="True"/>
+    <option es="False"/>
+  </build>
+  <mavenBuild>
+    <option dominoNotesProgram=""/>
+>>>>>>> Stashed changes
     <option settingsFilePath=""/>
+    <option mavenBuildPath="/Users/santanu/Documents/Adobe Flash Builder 4.7/ProminicGITBranch/ide/MoonshineDESKTOPevolved"/>
+    <option dominoNotesPlatform=""/>
     <option commandLine=""/>
     <actions>
       <action actionName="Build" action="install"/>
@@ -80,6 +122,7 @@
   <postBuildCommand alwaysRun="False">null</postBuildCommand>
   <trustSVNCertificate>False</trustSVNCertificate>
   <options>
+<<<<<<< Updated upstream
     <option showHiddenPaths="False"/>
     <option isExportedToExistingSource="False"/>
     <option isPrimeFacesVisualEditor="False"/>
@@ -96,6 +139,25 @@
     <option targetPlatform="1"/>
     <option customUrlToLaunch=""/>
     <option deviceSimulator="null"/>
+=======
+    <option isDominoVisualEditor="False"/>
+    <option defaultBuildTargets=""/>
+    <option isRoyale="False"/>
+    <option isExportedToExistingSource="False"/>
+    <option isPrimeFacesVisualEditor="False"/>
+    <option testMovie="AIR"/>
+    <option visualEditorExportPath=""/>
+    <option showHiddenPaths="False"/>
+    <option testMovieCommand=""/>
+  </options>
+  <moonshineRunCustomization>
+    <option targetPlatform="1"/>
+    <option customUrlToLaunch=""/>
+    <option deviceSimulator="null"/>
+    <option projectType="1"/>
+    <option launchMethod="Simulator"/>
+    <option urlToLaunch=""/>
+>>>>>>> Stashed changes
     <deviceSimulator>null</deviceSimulator>
     <certAndroid>null</certAndroid>
     <certIos>null</certIos>
