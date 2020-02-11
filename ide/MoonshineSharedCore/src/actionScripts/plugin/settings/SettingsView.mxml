@@ -449,7 +449,7 @@
 				buttonBarElement.visible = buttonBarElement.includeInLayout = isSave;
 			}
 	
-			protected function addButtons():void
+			private function addButtons():void
 			{
 				if (!showDefaultButtons && buttons.length == 0)
 				{

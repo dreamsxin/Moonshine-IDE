@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+  <output>
+    <movie background="#000000"/>
+    <movie version="27"/>
+    <movie width="100"/>
+    <movie path="bin/MoonshineSharedCore.swf"/>
+    <movie fps="24"/>
+    <movie height="100"/>
+    <movie platform="null"/>
+    <movie input=""/>
+    <movie disabled="False"/>
+  </output>
+  &lt;!-- Other classes to be compiled into your SWF --&gt;
+  <jsOutput>
+    <option path="/Users/prominic2/work/Moonshine-IDE/ide/MoonshineSharedCore"/>
+  </jsOutput>
+  <classpaths>
+    <class path="src"/>
+  </classpaths>
+  <moonshineResourcePaths></moonshineResourcePaths>
+  <moonshineNativeExtensionPaths></moonshineNativeExtensionPaths>
+  <build>
+    <option antBuildPath=""/>
+    <option useResourceBundleMetadata="True"/>
+    <option customSDK=""/>
+    <option showActionScriptWarnings="True"/>
+    <option additional="-locale en_US ja_JP -define+=CONFIG::OSX,false"/>
+    <option accessible="False"/>
+    <option warnings="True"/>
+    <option showBindingWarnings="True"/>
+    <option locale=""/>
+    <option verboseStackTraces="False"/>
+    <option showDeprecationWarnings="True"/>
+    <option benchmark="False"/>
+    <option linkReport=""/>
+    <option showUnusedTypeSelectorWarnings="True"/>
+    <option es="False"/>
+    <option staticLinkRSL="False"/>
+    <option strict="True"/>
+    <option loadConfig=""/>
+    <option compilerConstants=""/>
+    <option allowSourcePathOverlap="False"/>
+    <option useNetwork="True"/>
+    <option optimize="True"/>
+  </build>
+  <mavenBuild>
+    <option settingsFilePath=""/>
+    <option mavenBuildPath="/Users/prominic2/work/Moonshine-IDE/ide/MoonshineSharedCore"/>
+    <option commandLine="install"/>
+    <actions>
+      <action actionName="Build" action="install"/>
+      <action actionName="Clean and package" action="clean package"/>
+      <action actionName="Clean" action="clean"/>
+      <action actionName="Clean and Build" action="clean install"/>
+      <action actionName="Exploded" action="war:exploded"/>
+    </actions>
+  </mavenBuild>
+  <includeLibraries></includeLibraries>
+  <libraryPaths></libraryPaths>
+  <externalLibraryPaths></externalLibraryPaths>
+  <rslPaths></rslPaths>
+  <intrinsics></intrinsics>
+  <library/>
+  <compileTargets>
+    <compile path="src/MoonshineSharedCore.as"/>
+  </compileTargets>
+  <hiddenPaths></hiddenPaths>
+  <preBuildCommand>null</preBuildCommand>
+  <postBuildCommand alwaysRun="False">null</postBuildCommand>
+  <trustSVNCertificate>False</trustSVNCertificate>
+  <options>
+    <option defaultBuildTargets=""/>
+    <option isPrimeFacesVisualEditor="False"/>
+    <option testMovieCommand=""/>
+    <option isDominoVisualEditor="False"/>
+    <option isRoyale="False"/>
+    <option isExportedToExistingSource="False"/>
+    <option testMovie=""/>
+    <option showHiddenPaths="True"/>
+    <option visualEditorExportPath=""/>
+  </options>
+  <moonshineRunCustomization>
+    <option projectType="2"/>
+    <option urlToLaunch=""/>
+    <option customUrlToLaunch=""/>
+    <option deviceSimulator="null"/>
+    <option targetPlatform="2"/>
+    <option launchMethod="Simulator"/>
+    <deviceSimulator>null</deviceSimulator>
+    <certAndroid>null</certAndroid>
+    <certIos>null</certIos>
+    <certIosProvisioning>null</certIosProvisioning>
+  </moonshineRunCustomization>
+</project>

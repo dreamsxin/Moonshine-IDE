@@ -14,4 +14,12 @@
         <icon>Visual Editor Project.png</icon>
         <description>Create a Apache® Royale project that will generate an SWF and HTML files, to run on browser.</description>
     </template>
+
+    <template displayHome="false">
+        <title>Domino Visual Editor Project</title>
+        <homeTitle>Domino Visual Editor Project</homeTitle>
+        <name>Domino Project</name>
+        <icon>Visual Editor Project.png</icon>
+        <description>Create a Domino project that will generate an domino nsf database file , to run on domino.</description>
+    </template>
 </templates>

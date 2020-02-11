@@ -201,6 +201,16 @@ package actionScripts.plugin.templating
                     ConstantsCoreVO.TEMPLATES_VISUALEDITOR_FILES_FLEX.addItem(file);
             }
 
+			//domino template ,need copy folder
+			files = templatesDir.resolvePath("files/visualeditor/domino/nsfs/nsf-moonshine/odp/Forms/");
+			ConstantsCoreVO.TEMPLATES_VISUALEDITOR_FILES_DOMINO.addItem(files);
+			list = files.fileBridge.getDirectoryListing();
+			for each (file in list)
+            {
+                if (!file.isHidden && !file.isDirectory)
+                    ConstantsCoreVO.TEMPLATES_VISUALEDITOR_FILES_DOMINO.addItem(file);
+            }
+		
             files = templatesDir.resolvePath("files/visualeditor/primeFaces");
             list = files.fileBridge.getDirectoryListing();
             for each (file in list)
@@ -841,6 +851,9 @@ package actionScripts.plugin.templating
                         break;
 					case "Visual Editor Flex File":
 					case "Visual Editor PrimeFaces File":
+						openVisualEditorComponentTypeChoose(event);
+						break;
+					case "Visual Editor Domino File":
 						openVisualEditorComponentTypeChoose(event);
 						break;
 					case "Java Class":

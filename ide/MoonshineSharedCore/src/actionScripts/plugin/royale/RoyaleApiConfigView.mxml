@@ -2,7 +2,6 @@
 <settings:SettingsView xmlns:fx="http://ns.adobe.com/mxml/2009"
                        xmlns:settings="actionScripts.plugin.settings.*">
     <fx:Script><![CDATA[
-        import actionScripts.events.RoyaleApiReportEvent;
         import actionScripts.plugin.settings.vo.AbstractSetting;
         import actionScripts.plugin.settings.vo.ISetting;
         import actionScripts.plugin.settings.vo.PathSetting;
@@ -20,18 +19,6 @@
         import spark.components.VGroup;
         import spark.layouts.HorizontalAlign;
         import spark.layouts.VerticalAlign;
-
-        private var _doNotShowPromptAgain:Boolean;
-
-        public function get doNotShowPromptAgain():Boolean
-        {
-            return _doNotShowPromptAgain;
-        }
-
-        public function set doNotShowPromptAgain(value:Boolean):void
-        {
-            _doNotShowPromptAgain = value;
-        }
 
         override public function save():void
         {
@@ -62,19 +49,20 @@
                 requiredSetting.renderer["setMessage"]("This field is required to generate report", AbstractSetting.MESSAGE_CRITICAL);
                 (requiredSetting as AbstractSetting).addEventListener(AbstractSetting.PATH_SELECTED, onRequiredSettingPathSelect);
             }
-            else if (!doNotShowPromptAgain)
+            else
             {
                 var reportInfoPopup:RoyaleApiInfoPopup = PopUpManager.createPopUp(FlexGlobals.topLevelApplication as DisplayObject, RoyaleApiInfoPopup) as RoyaleApiInfoPopup;
                 reportInfoPopup.addEventListener(CloseEvent.CLOSE, onCloseInfoPopup);
-                reportInfoPopup.addEventListener(RoyaleApiReportEvent.DO_NOT_SHOW_PROMPT_API_REPORT, onDoNotShowPromptApiReprot);
-
                 PopUpManager.centerPopUp(reportInfoPopup);
             }
+<<<<<<< HEAD
             else
             {
                 showBusyIndicator();
                 super.save();
             }
+=======
+>>>>>>> 92ff5125168850808ad3ca34c255766347da5d9a
         }
 
         private function onCloseInfoPopup(event:CloseEvent):void
@@ -96,6 +84,7 @@
             event.target.renderer["setMessage"](null, AbstractSetting.MESSAGE_CRITICAL);
             event.target.removeEventListener(AbstractSetting.PATH_SELECTED, onRequiredSettingPathSelect);
         }
+<<<<<<< HEAD
 
         private function onDoNotShowPromptApiReprot(event:RoyaleApiReportEvent):void
         {
@@ -125,5 +114,7 @@
 
             settingsContainer.addElement(busyContainer);
         }
+=======
+>>>>>>> 92ff5125168850808ad3ca34c255766347da5d9a
         ]]></fx:Script>
 </settings:SettingsView>
